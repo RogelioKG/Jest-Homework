@@ -1,13 +1,13 @@
-import { BookInfo } from "@externals/simple-db";
+import { BookInfo } from '@externals/simple-db';
 
-import { DisplayRangeSystem } from "./DisplayRangeSystem";
-import { WordPuritySystem } from "./WordPuritySystem";
-import { FilterSystem } from "./FilterSystem";
-import { BaseSystem } from "./BaseSystem";
-import { SortSystem } from "./SortSystem";
+import { DisplayRangeSystem } from './DisplayRangeSystem';
+import { WordPuritySystem } from './WordPuritySystem';
+import { FilterSystem } from './FilterSystem';
+import { BaseSystem } from './BaseSystem';
+import { SortSystem } from './SortSystem';
 
-import { DataBaseSystem } from "./DataBaseSystem";
-import { WordPurityService } from "@externals/word-purity";
+import { DataBaseSystem } from './DataBaseSystem';
+import { WordPurityService } from '@externals/word-purity';
 
 export enum UpdateType {
     Data,
@@ -36,7 +36,7 @@ export class ListViewerManager {
             new FilterSystem(),
             new SortSystem(),
             new DisplayRangeSystem(),
-        ]
+        ];
     }
 
     /**

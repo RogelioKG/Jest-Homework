@@ -1,4 +1,4 @@
-import { BookInfo } from "@externals/simple-db";
+import { BookInfo } from '@externals/simple-db';
 
 export abstract class BaseSystem {
     protected items: BookInfo[] = [];

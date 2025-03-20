@@ -1,15 +1,15 @@
-import { BookInfo } from "@externals/simple-db";
-import { BaseSystem } from "./BaseSystem";
+import { BookInfo } from '@externals/simple-db';
+import { BaseSystem } from './BaseSystem';
 
 export class SortSystem extends BaseSystem {
-    public static ASC = "ASC";
+    public static ASC = 'ASC';
 
-    public static DESC = "DESC";
+    public static DESC = 'DESC';
 
-    private sortType = "ASC";
+    private sortType = 'ASC';
 
     constructor() {
-        super("Sort Update");
+        super('Sort Update');
     }
 
     /**
@@ -22,7 +22,7 @@ export class SortSystem extends BaseSystem {
             case SortSystem.DESC:
                 break;
             default:
-                throw new Error("It must be ASC or DESC");
+                throw new Error('It must be ASC or DESC');
         }
         this.sortType = sortType;
     }

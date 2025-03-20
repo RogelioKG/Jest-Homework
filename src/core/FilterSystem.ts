@@ -1,11 +1,11 @@
-import { BookInfo } from "@externals/simple-db";
-import { BaseSystem } from "./BaseSystem";
+import { BookInfo } from '@externals/simple-db';
+import { BaseSystem } from './BaseSystem';
 
 export class FilterSystem extends BaseSystem {
-    private filterWord: string = "";
+    private filterWord: string = '';
     private ignoreCase: boolean = false;
     constructor() {
-        super("Filter Update");
+        super('Filter Update');
     }
 
     public setFilterWord(filterWord: string) {
@@ -21,7 +21,7 @@ export class FilterSystem extends BaseSystem {
     }
 
     public isIgnoreCase() {
-        return this.ignoreCase
+        return this.ignoreCase;
     }
 
     public async process(prevItems: BookInfo[]) {

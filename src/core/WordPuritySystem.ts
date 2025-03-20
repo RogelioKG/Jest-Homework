@@ -1,7 +1,7 @@
-import { BookInfo } from "@externals/simple-db";
-import { WordPurityService } from "@externals/word-purity";
+import { BookInfo } from '@externals/simple-db';
+import { WordPurityService } from '@externals/word-purity';
 
-import { BaseSystem } from "./BaseSystem";
+import { BaseSystem } from './BaseSystem';
 
 export class WordPuritySystem extends BaseSystem {
     // 用於將敏感文字過濾掉的服務
@@ -10,12 +10,12 @@ export class WordPuritySystem extends BaseSystem {
     protected disable: boolean;
 
     constructor(domPurity: WordPurityService) {
-        super("Dom Purity Update");
+        super('Dom Purity Update');
         this.domPurity = domPurity;
         // 添加敏感文字
         this.domPurity.addWord([
-            "Copperfield",
-            "Wonderland"
+            'Copperfield',
+            'Wonderland',
         ]);
     }
 

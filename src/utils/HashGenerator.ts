@@ -9,7 +9,7 @@ export class HashGenerator {
         if (charaterNum <= 0) {
             throw new Error("Hash number can't less than 0");
         }
-        let str = "";
+        let str = '';
         for (let i = 0; i < charaterNum; i += 1) {
             str += String.fromCharCode((Math.random() * 26) + 65);
         }
@@ -25,11 +25,11 @@ export class HashGenerator {
      * @param pattern 要產生的 Pattern
      * @returns 只包含 `0-9` 與 `-` 的字串 */
     public simpleISBN(pattern: string) {
-        let res = "";
+        let res = '';
         for (let i = 0; i < pattern.length; i += 1) {
             const patternCh = pattern.charAt(i);
             if (patternCh === '-') {
-                res += patternCh
+                res += patternCh;
             }
             else {
                 res += String.fromCharCode((Math.random() * 10) + 48);

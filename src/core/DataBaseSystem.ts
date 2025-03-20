@@ -1,7 +1,7 @@
-import { BookDataBaseService, BookInfo } from "@externals/simple-db";
+import { BookDataBaseService, BookInfo } from '@externals/simple-db';
 
-import { HashGenerator } from "../utils/HashGenerator";
-import { BaseSystem } from "./BaseSystem";
+import { HashGenerator } from '../utils/HashGenerator';
+import { BaseSystem } from './BaseSystem';
 
 export class DataBaseSystem extends BaseSystem {
     // 做資料庫互動的服務
@@ -14,7 +14,7 @@ export class DataBaseSystem extends BaseSystem {
     public static retryTimes = 5;
 
     constructor(db?: BookDataBaseService, hashg?: HashGenerator) {
-        super("Data Base Update");
+        super('Data Base Update');
         this.db = db || new BookDataBaseService();
         this.hashGenerator = hashg || new HashGenerator();
     }
@@ -27,14 +27,14 @@ export class DataBaseSystem extends BaseSystem {
         let count = 0;
         while(true) {
             try {
-                const res = await this.db.setUp("http://localhost", 4000);
+                const res = await this.db.setUp('http://localhost', 4000);
                 this.items = await this.db.getBooks();
                 return res;
             } 
             catch (e) {
                 await this.retryDelay();
                 if (++count >= DataBaseSystem.retryTimes) {
-                    throw new Error("Cannnot connect to DB");
+                    throw new Error('Cannnot connect to DB');
                 };
             }
         }
@@ -52,7 +52,7 @@ export class DataBaseSystem extends BaseSystem {
         try {
             if (title && author) {
                 // 隨機產生一個 ISBN
-                const bookISBN = this.hashGenerator.simpleISBN("000-00-00000-00-0");
+                const bookISBN = this.hashGenerator.simpleISBN('000-00-00000-00-0');
                 await this.db.addBook({
                     ISBN: bookISBN,
                     title: title,
@@ -60,11 +60,11 @@ export class DataBaseSystem extends BaseSystem {
                 });
             }
             else {
-                throw new Error("Title or Author cannot be null");
+                throw new Error('Title or Author cannot be null');
             }
         }
         catch(e) {
-            throw new Error("Add book failed");
+            throw new Error('Add book failed');
         }
     }
 
@@ -74,11 +74,11 @@ export class DataBaseSystem extends BaseSystem {
                 await this.db.deleteBook(bookISBN);
             }
             else {
-                throw new Error("ISBN cannot be empty");
+                throw new Error('ISBN cannot be empty');
             }
         }
         catch(e) {
-            throw new Error("Delete book failed");
+            throw new Error('Delete book failed');
         }
     }
 

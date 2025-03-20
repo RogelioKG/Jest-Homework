@@ -1,6 +1,5 @@
 {
   "name": "typescript-sep-work",
-  "type": "module",
   "version": "1.0.0",
   "description": "for software engineering program class example",
   "main": "index.js",

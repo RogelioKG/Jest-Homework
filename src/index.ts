@@ -1,14 +1,14 @@
 
-import { UpdateType, ListViewerManager } from "./core/ListManager";
+import { UpdateType, ListViewerManager } from './core/ListManager';
 
 import './index.scss';
-import { FilterSystem } from "./core/FilterSystem";
-import { DisplayRangeSystem } from "./core/DisplayRangeSystem";
-import { SortSystem } from "./core/SortSystem";
-import { DataBaseSystem } from "./core/DataBaseSystem";
+import { FilterSystem } from './core/FilterSystem';
+import { DisplayRangeSystem } from './core/DisplayRangeSystem';
+import { SortSystem } from './core/SortSystem';
+import { DataBaseSystem } from './core/DataBaseSystem';
 
-import Notify from 'simple-notify'
-import 'simple-notify/dist/simple-notify.min.css'
+import Notify from 'simple-notify';
+import 'simple-notify/dist/simple-notify.min.css';
 
 const notifyQueue: Notify[] = [];
 
@@ -31,7 +31,7 @@ function pushNotify(msgs: string[]) {
             gap:         20,
             distance:    20,
             type:        1,
-            position:    'right top'
+            position:    'right top',
         });
         notifyQueue.push(notify);
         i -= 1;
@@ -54,14 +54,14 @@ function pushErrorNotify(msg: string) {
         gap:         20,
         distance:    20,
         type:        1,
-        position:    'right top'
+        position:    'right top',
     });
     notifyQueue.push(notify);
 }
 
 function rerender(system: ListViewerManager) {
-    const container = document.getElementById("ItemContainer");
-    container.innerHTML = "";
+    const container = document.getElementById('ItemContainer');
+    container.innerHTML = '';
 
     function generateRow(ISBN: string, title: string, author: string, isHeader: boolean) {
         const displayDiv = document.createElement('div');
@@ -71,31 +71,31 @@ function rerender(system: ListViewerManager) {
         indexDiv.textContent = ISBN;
         indexDiv.style.minWidth = '180px';
         indexDiv.style.textAlign = 'left';
-        indexDiv.style.fontWeight = isHeader ? 'bolder' : 'normal'
+        indexDiv.style.fontWeight = isHeader ? 'bolder' : 'normal';
 
         const authorDiv = document.createElement('span');
         authorDiv.textContent = author;
         authorDiv.style.minWidth = 'fit-content';
-        authorDiv.style.fontWeight = isHeader ? 'bolder' : 'normal'
+        authorDiv.style.fontWeight = isHeader ? 'bolder' : 'normal';
 
         const titleDiv = document.createElement('span');
         titleDiv.innerHTML = title;
         titleDiv.style.minWidth = '280px';
-        titleDiv.style.fontWeight = isHeader ? 'bolder' : 'normal'
+        titleDiv.style.fontWeight = isHeader ? 'bolder' : 'normal';
 
         displayDiv.append(indexDiv, titleDiv, authorDiv);
         return displayDiv;
     }
 
     container.append(
-        generateRow("ISBN", "Book Title", "Book Author", true),
-        generateRow("------------------------", "---------------------------------", "-----------------------", true),
-        ...system.generateDisplayItemRow().map((val) => generateRow(val.ISBN, val.title, val.author, false))
-    )
+        generateRow('ISBN', 'Book Title', 'Book Author', true),
+        generateRow('------------------------', '---------------------------------', '-----------------------', true),
+        ...system.generateDisplayItemRow().map((val) => generateRow(val.ISBN, val.title, val.author, false)),
+    );
 
     const paddingDiv = document.createElement('div');
-    paddingDiv.style.height = '200px'
-    container.append(paddingDiv)
+    paddingDiv.style.height = '200px';
+    container.append(paddingDiv);
 }
 
 function uiInitialize(system: ListViewerManager) {
@@ -142,7 +142,7 @@ function uiInitialize(system: ListViewerManager) {
         await system.updateResult(UpdateType.Filter);
         rerender(system);
         pushNotify(system.getUpdateMessage());
-    }
+    };
     filterInputElement.addEventListener('input', filterHandler);
     filterCaseElement.addEventListener('input', filterHandler);
 
@@ -162,7 +162,7 @@ function uiInitialize(system: ListViewerManager) {
         catch(e) {
             pushErrorNotify(e);
         }
-    }
+    };
     rangeFromElemnt.addEventListener('input', rangeHandler);
     rangeToElemnt.addEventListener('input', rangeHandler);
 

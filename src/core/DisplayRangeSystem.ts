@@ -1,5 +1,5 @@
-import { BookInfo } from "@externals/simple-db";
-import { BaseSystem } from "./BaseSystem";
+import { BookInfo } from '@externals/simple-db';
+import { BaseSystem } from './BaseSystem';
 
 export class DisplayRangeSystem extends BaseSystem {
     protected endRange = 10;
@@ -7,7 +7,7 @@ export class DisplayRangeSystem extends BaseSystem {
     protected startRange = 1;
 
     constructor() {
-        super("Display Range Update");
+        super('Display Range Update');
     }
 
     /**
@@ -18,15 +18,15 @@ export class DisplayRangeSystem extends BaseSystem {
         if (typeof val === 'string') {
             const newVal = Number.parseInt(val, 10);
             if (Number.isNaN(newVal)) {
-                throw new Error("Invalid String Input");
+                throw new Error('Invalid String Input');
             }
             return newVal;
         }
         else if (Number.isInteger(val) === false) {
-            throw new Error("Invalid Float Input");
+            throw new Error('Invalid Float Input');
         }
         else if (val <= 0) {
-            throw new Error("Cannot be less than 0");
+            throw new Error('Cannot be less than 0');
         }
         return val;
     }
@@ -40,7 +40,7 @@ export class DisplayRangeSystem extends BaseSystem {
         const sRange = this.convertNum(startRange);
         const eRange = this.convertNum(endRange);
         if (eRange < sRange) {
-            throw new Error("End Range cannot less than Start Range");
+            throw new Error('End Range cannot less than Start Range');
         }
         this.startRange = sRange;
         this.endRange = eRange;
