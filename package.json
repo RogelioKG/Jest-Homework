@@ -1,5 +1,6 @@
 {
   "name": "typescript-sep-work",
+  "type": "module",
   "version": "1.0.0",
   "description": "for software engineering program class example",
   "main": "index.js",
@@ -22,7 +23,11 @@
     "@types/jest": "^29.1.2",
     "@types/mocha": "^10.0.0",
     "@types/node": "^18.8.5",
+    "@typescript-eslint/eslint-plugin": "^8.27.0",
+    "@typescript-eslint/parser": "^8.27.0",
     "css-loader": "^6.7.3",
+    "eslint": "^9.22.0",
+    "globals": "^16.0.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^29.2.0",
